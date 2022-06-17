@@ -1,0 +1,16 @@
+.popup__field-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.popup__field-wrap:nth-last-of-type(1) {
+  margin-bottom: 48px;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__field-wrap:nth-last-of-type(1) {
+    margin-bottom: 45px;
+  }
+}

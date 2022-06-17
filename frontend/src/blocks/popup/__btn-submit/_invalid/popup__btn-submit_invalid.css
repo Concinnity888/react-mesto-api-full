@@ -1,0 +1,6 @@
+.popup__btn-submit_invalid {
+  background-color: transparent;
+  color: #000000;
+  border: 1px solid #000000;
+  opacity: .2;
+}

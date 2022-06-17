@@ -1,0 +1,16 @@
+.info-tooltip__container {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  flex-direction: column;
+  padding: 212px 36px 60px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  background-image: url('../../../images/icon-success.svg');
+  background-repeat: no-repeat;
+  background-position: top 60px center;
+  color: #000000;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, .15);
+  border-radius: 10px;
+}

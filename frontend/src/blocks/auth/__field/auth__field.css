@@ -1,0 +1,20 @@
+.auth__field {
+  margin: 0;
+  padding: 10px 0 9px;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #CCCCCC;
+  outline: none;
+  transition: all .35s ease;
+}
+
+.auth__field::placeholder{
+  color: #CCCCCC;
+}

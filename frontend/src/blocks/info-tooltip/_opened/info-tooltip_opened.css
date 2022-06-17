@@ -1,0 +1,5 @@
+.info-tooltip_opened {
+  transition: all .35s ease;
+  visibility: visible;
+  opacity: 1;
+}
