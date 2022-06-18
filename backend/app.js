@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { celebrate, Joi, errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { routes } = require('./routes');
@@ -16,6 +17,12 @@ const NotFoundError = require('./errors/NotFoundError');
 const app = express();
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: 'https://mesto-ap.nomoredomains.xyz',
+    credentials: true,
+  }),
+);
 
 app.use(requestLogger);
 
