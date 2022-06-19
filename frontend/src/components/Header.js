@@ -4,6 +4,12 @@ import logo from '../images/logo.svg';
 function Header({ email }) {
   const location = useLocation();
 
+  const logout = (evt) => {
+    evt.preventDefault();
+    localStorage.removeItem('token');
+    window.location.href = '/signin';
+  };
+
   return (
     <header className='header'>
       <img className='header__logo' src={logo} alt='Место' />
@@ -24,7 +30,7 @@ function Header({ email }) {
         {location.pathname === '/' && (
           <>
             {email && <span className='header__email'>{email}</span>}{' '}
-            <Link to='/signin' className='header__link header__link_color_gray'>
+            <Link to='/signin' className='header__link header__link_color_gray' onClick={logout}>
               Выйти
             </Link>
           </>
