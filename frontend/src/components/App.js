@@ -175,7 +175,6 @@ function App() {
     auth
       .authorize(email, password)
       .then((res) => {
-        console.log('res', res);
         if (res.token) {
           localStorage.setItem('token', res.token);
           setIsLoggedIn(true);
