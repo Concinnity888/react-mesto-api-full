@@ -95,6 +95,13 @@ class Api {
       body: JSON.stringify(avatar),
     }).then(this._checkResponse);
   }
+
+  updateToken() {
+    this._headers = {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json',
+    }
+  }
 }
 
 const api = new Api({

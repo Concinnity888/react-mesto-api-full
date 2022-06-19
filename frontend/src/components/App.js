@@ -33,6 +33,8 @@ function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
+      api.updateToken();
+
       Promise.all([api.getInitialCards(), api.getUser()])
         .then((data) => {
           const [initialCards, user] = data;
@@ -173,6 +175,7 @@ function App() {
     auth
       .authorize(email, password)
       .then((res) => {
+        console.log('res', res);
         if (res.token) {
           localStorage.setItem('token', res.token);
           setIsLoggedIn(true);
