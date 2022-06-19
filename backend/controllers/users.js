@@ -90,25 +90,27 @@ const createUser = async (req, res, next) => {
     password,
   } = req.body;
 
-  if (!email || !password) {
-    next(new BadRequestError('Неправильные логин или пароль'));
-    return;
-  }
-
   try {
-    const hashPassword = await bcrypt.hash(req.body.password, SAULT_ROUNDS);
-    await User.create({
+    const hashPassword = await bcrypt.hash(password, SAULT_ROUNDS);
+    const user = await User.create({
       name,
       about,
       avatar,
       email,
       password: hashPassword,
     });
+
+    if (!user) {
+      next(new ValidationError('Переданы некорректные данные при создании пользователя'));
+      return;
+    }
+
     res.status(201).send({
+      _id: user._id,
+      email,
       name,
       about,
       avatar,
-      email,
     });
   } catch (err) {
     if (err.name === 'ValidationError') {
