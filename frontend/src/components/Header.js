@@ -1,13 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../images/logo.svg';
 
-function Header({ email }) {
+function Header({ email, onLogout }) {
   const location = useLocation();
 
-  const logout = (evt) => {
+  const handleLogout = (evt) => {
     evt.preventDefault();
-    localStorage.removeItem('token');
-    window.location.href = '/signin';
+
+    onLogout();
   };
 
   return (
@@ -30,7 +30,7 @@ function Header({ email }) {
         {location.pathname === '/' && (
           <>
             {email && <span className='header__email'>{email}</span>}{' '}
-            <Link to='/signin' className='header__link header__link_color_gray' onClick={logout}>
+            <Link to='/signin' className='header__link header__link_color_gray' onClick={handleLogout}>
               Выйти
             </Link>
           </>

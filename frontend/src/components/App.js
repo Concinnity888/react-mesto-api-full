@@ -188,10 +188,19 @@ function App() {
       });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    setCurrentUser({});
+    setEmail('');
+    setCards([]);
+    history.push('/signin');
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
-        <Header email={email} />
+        <Header email={email} onLogout={handleLogout} />
 
         <Switch>
           <ProtectedRoute
